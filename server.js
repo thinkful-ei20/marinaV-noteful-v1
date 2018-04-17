@@ -1,16 +1,17 @@
 'use strict';
 
-// TEMP: Simple In-Memory Database
-const data = require('./db/notes');
-
 const express = require('express');
+
+const app = express();
 
 const { PORT } = require('./config');
 
 const { myLogger } = require('./middleware/logger');
 
-const app = express();
-
+// TEMP: Simple In-Memory Database
+const data = require('./db/notes');
+const simDB = require('./db/simDB');
+const notes = simDB.initialize(data);
 
 app.use(express.static('public'));
 
@@ -42,30 +43,30 @@ app.use(myLogger);
 // app.get('/url-1', requestLogger, (req, res) => res.send('request made to /url-1'));
 
 
-// route function
-app.get('/api/notes', (req, res) => {
+app.get('/api/notes', (req, res, next) => {
   console.log('searching notes');
-  const searchTerm = req.query.searchTerm;
-  if (searchTerm) {
-    res.json(data.filter(note => note.title.includes(searchTerm) || note.content.includes(searchTerm)));
-  } else {
-    res.json(data);
-  }
 
+  const { searchTerm } = req.query;
+
+  notes.filter(searchTerm, (err, list) => {
+    if (err) {
+      return next(err); // goes to error handler
+    }
+    res.json(list); // responds with filtered array
+  });
 });
+
 
 // route function
 app.get('/api/notes/:id', (req, res) => {
   const id = req.params.id;
-  const myNote = data.find(item => item.id === Number(id));
-  console.log(myNote);
-  res.json(myNote);
+  notes.find(id, (err, item) => {
+    if (err) {
+      return next(err);
+    }
+    res.json(item);
+  });
  });
-
-
-// app.get('/boom', (req, res, next) => {
-//   throw new Error('Boom!!');
-// });
 
 app.use(function (req, res, next) {
   const err = new Error('Not Found');

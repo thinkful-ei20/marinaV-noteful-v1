@@ -29,8 +29,8 @@
       <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="85" column="25" lean-forward="true" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
+            <state relative-caret-position="368">
+              <caret line="75" column="23" lean-forward="true" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -67,7 +67,7 @@
       <file leaf-file-name="notes.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/notes.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
+            <state relative-caret-position="612">
               <caret line="36" column="3" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
             </state>
           </provider>
@@ -75,7 +75,20 @@
       </file>
       <file leaf-file-name="simDB.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/simDB.js">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="546">
+              <caret line="83" column="12" lean-forward="true" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="queries.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scratch/queries.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="819">
+              <caret line="39" column="3" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -102,6 +115,7 @@
         <option value="$PROJECT_DIR$/db/notes.json" />
         <option value="$PROJECT_DIR$/config.js" />
         <option value="$PROJECT_DIR$/middleware/logger.js" />
+        <option value="$PROJECT_DIR$/scratch/queries.js" />
         <option value="$PROJECT_DIR$/server.js" />
       </list>
     </option>
@@ -133,6 +147,16 @@
             <path>
               <item name="noteful-app-v1" type="b2602c69:ProjectViewProjectNode" />
               <item name="noteful-app-v1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="noteful-app-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="noteful-app-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="noteful-app-v1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="noteful-app-v1" type="462c0819:PsiDirectoryNode" />
+              <item name="scratch" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -174,7 +198,7 @@
       <option name="presentableId" value="Default" />
       <updated>1523880938348</updated>
       <workItem from="1523880939725" duration="18159000" />
-      <workItem from="1523966083889" duration="13145000" />
+      <workItem from="1523966083889" duration="15292000" />
     </task>
     <task id="LOCAL-00001" summary="Create config.js module">
       <created>1523991638718</created>
@@ -190,11 +214,25 @@
       <option name="project" value="LOCAL" />
       <updated>1523993092259</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Express Error-Handling Middleware">
+      <created>1523994251710</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1523994251710</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Update GET Notes by Search and ID">
+      <created>1523995706326</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1523995706326</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31304000" />
+    <option name="totallyTimeSpent" value="33451000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -229,7 +267,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Create config.js module" />
     <MESSAGE value="Create logger middleware" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create logger middleware" />
+    <MESSAGE value="Express Error-Handling Middleware" />
+    <MESSAGE value="Update GET Notes by Search and ID" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update GET Notes by Search and ID" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/package.json">
@@ -265,22 +305,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/simDB.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/api.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/notes.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="36" column="3" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -298,6 +328,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scratch/queries.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="819">
+          <caret line="39" column="3" selection-start-line="39" selection-start-column="3" selection-end-line="39" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/notes.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="3" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/middleware/logger.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -305,10 +349,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/db/simDB.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="83" column="12" lean-forward="true" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="85" column="25" lean-forward="true" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
+        <state relative-caret-position="368">
+          <caret line="75" column="23" lean-forward="true" selection-start-line="75" selection-start-column="23" selection-end-line="75" selection-end-column="23" />
         </state>
       </provider>
     </entry>

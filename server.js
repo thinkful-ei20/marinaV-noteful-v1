@@ -5,10 +5,19 @@ const data = require('./db/notes');
 
 const express = require('express');
 
+const { PORT } = require('./config');
+
 const app = express();
 
 
 app.use(express.static('public'));
+
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
+  next();
+});
 
 
 // const myMiddleWareFunc = (req, res, next) => {
@@ -29,13 +38,6 @@ app.use(express.static('public'));
 //
 // app.get('/url-1', requestLogger, (req, res) => res.send('request made to /url-1'));
 
-// route function
-app.get('/api/notes/:id', (req, res) => {
-  const id = req.params.id;
-  const myNote = data.find(item => item.id === Number(id));
-  console.log(myNote);
-  res.json(myNote);
- });
 
 // route function
 app.get('/api/notes', (req, res) => {
@@ -49,10 +51,28 @@ app.get('/api/notes', (req, res) => {
 
 });
 
+// route function
+app.get('/api/notes/:id', (req, res) => {
+  const id = req.params.id;
+  const myNote = data.find(item => item.id === Number(id));
+  console.log(myNote);
+  res.json(myNote);
+ });
+
+
+
+
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json
+});
+
 
 // Listen for incoming connections
-app.listen(8080, function () {
+app.listen(PORT, function () {
   console.info(`Server listening on ${this.address().port}`);
 }).on('error', err => {
   console.error(err);
 });
+

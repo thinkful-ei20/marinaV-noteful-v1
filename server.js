@@ -10,27 +10,24 @@ const app = express();
 
 app.use(express.static('public'));
 
-// app.get('/api/notes', (req, res) => {
-//   // console.log(data);
-//   res.json(data);
-// });
-const myMiddleWareFunc = (req, res, next) => {
-  console.log(req.url);
-  next();
-};
 
-const requestLogger = (req, res, next) => {
-  const now = new Date();
-  console.log(
-    `${now.toLocaleDateString()} ${now.toLocaleTimeString()} ${req.method} ${req.url}`
-  );
-  next();
-};
+// const myMiddleWareFunc = (req, res, next) => {
+//   console.log(req.url);
+//   next();
+// };
 
-// app.use(myMiddleWareFunc);
-app.use(requestLogger);
-
-app.get('/url-1', requestLogger, (req, res) => res.send('request made to /url-1'));
+// const requestLogger = (req, res, next) => {
+//   const now = new Date();
+//   console.log(
+//     `${now.toLocaleDateString()} ${now.toLocaleTimeString()} ${req.method} ${req.url}`
+//   );
+//   next();
+// };
+//
+// // app.use(myMiddleWareFunc);
+// app.use(requestLogger);
+//
+// app.get('/url-1', requestLogger, (req, res) => res.send('request made to /url-1'));
 
 // route function
 app.get('/api/notes/:id', (req, res) => {
@@ -49,12 +46,9 @@ app.get('/api/notes', (req, res) => {
   } else {
     res.json(data);
   }
-  
+
 });
 
-
-
-console.log('hello');
 
 // Listen for incoming connections
 app.listen(8080, function () {

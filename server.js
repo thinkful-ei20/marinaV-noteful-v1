@@ -7,6 +7,8 @@ const express = require('express');
 
 const { PORT } = require('./config');
 
+const { myLogger } = require('./middleware/logger');
+
 const app = express();
 
 
@@ -19,6 +21,7 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.use(myLogger);
 
 // const myMiddleWareFunc = (req, res, next) => {
 //   console.log(req.url);

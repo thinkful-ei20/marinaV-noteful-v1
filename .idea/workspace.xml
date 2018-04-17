@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="633490a8-0c80-4fe3-8e03-062bcc9148a8" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
@@ -30,8 +29,17 @@
       <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="578">
+              <caret line="85" column="25" lean-forward="true" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="logger.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/middleware/logger.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -92,8 +100,9 @@
       <list>
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/db/notes.json" />
-        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/config.js" />
+        <option value="$PROJECT_DIR$/middleware/logger.js" />
+        <option value="$PROJECT_DIR$/server.js" />
       </list>
     </option>
   </component>
@@ -165,12 +174,27 @@
       <option name="presentableId" value="Default" />
       <updated>1523880938348</updated>
       <workItem from="1523880939725" duration="18159000" />
-      <workItem from="1523966083889" duration="10550000" />
+      <workItem from="1523966083889" duration="13145000" />
     </task>
+    <task id="LOCAL-00001" summary="Create config.js module">
+      <created>1523991638718</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1523991638718</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Create logger middleware">
+      <created>1523993092259</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1523993092259</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28709000" />
+    <option name="totallyTimeSpent" value="31304000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -201,6 +225,11 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Create config.js module" />
+    <MESSAGE value="Create logger middleware" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create logger middleware" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/package.json">
@@ -269,10 +298,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/middleware/logger.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="578">
+          <caret line="85" column="25" lean-forward="true" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
         </state>
       </provider>
     </entry>

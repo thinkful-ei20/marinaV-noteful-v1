@@ -12,6 +12,7 @@ const simDB = {
       item.id = this.nextVal++;
       return item;
     });
+
     return this;
   },
   
@@ -31,6 +32,7 @@ const simDB = {
   filter: function (term, callback) {
     setTimeout(() => {
       try {
+        //If query obj has properties => filter notes, otherwise return all notes
         let list = term ? this.data.filter(item => item.title.includes(term)) : this.data;
         callback(null, list);
       } catch (err) {

@@ -1,19 +1,27 @@
 'use strict';
 
 const express = require('express');
-
+const morgan = require('morgan');
 const app = express();
 
 const { PORT } = require('./config');
 
-const { myLogger } = require('./middleware/logger');
+// const { myLogger } = require('./middleware/logger');
 
 // TEMP: Simple In-Memory Database
 const data = require('./db/notes');
 const simDB = require('./db/simDB');
 const notes = simDB.initialize(data);
 
+//Output format is :method :url :status :response-time ms - :res[content-length]
+app.use(morgan('dev'));
+
+//Log all requests
+app.use(myLogger);
+
 app.use(express.static('public'));
+
+//Parse request body
 app.use(express.json());
 
 app.use(function (req, res, next) {
@@ -23,7 +31,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use(myLogger);
 
 // const myMiddleWareFunc = (req, res, next) => {
 //   console.log(req.url);

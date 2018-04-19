@@ -3,20 +3,12 @@
 const express = require('express');
 const morgan = require('morgan');
 const app = express();
-
 const { PORT } = require('./config');
-
 const router = require('./router/notes_router');
 
-// const { myLogger } = require('./middleware/logger');
-//Output format is :method :url :status :response-time ms - :res[content-length]
+//Logger
+//Output format is :remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length]
 app.use(morgan('common'));
-
-// TEMP: Simple In-Memory Database
-// const data = require('./db/notes');
-// const simDB = require('./db/simDB');
-// console.log(simDB.initialize);
-// const notes = simDB.initialize(data);
 
 // Create a static webserver
 app.use(express.static('public'));

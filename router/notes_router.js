@@ -17,28 +17,39 @@ const notes = simDb.initialize(data);
 router.get('/', (req, res, next) => {
   console.log('searching notes');
   const { searchTerm } = req.query;
-  notes.filter(searchTerm, (err, list) => {
-    if (err) {
-      return next(err); // goes to error handler
-    }
-    res.json(list); // responds with filtered array
-  });
+
+  notes.filter(searchTerm)
+    .then(list => {
+      res.json(list); // responds with filtered array
+    })
+    .catch(err => {
+      next(err);
+    });
 });
 
 //Get note that matches id parameter
 router.get('/:id', (req, res) => {
   const id = req.params.id;
-  notes.find(id, (err, item) => {
-    if (err) {
-      return next(err);
-    }
-    res.json(item);
-  });
+
+  notes.find(id)
+    .then(item => {
+      if (item) {
+        res.json(item);
+      } else {
+        next();
+      }
+    })
+    .catch(err => {
+      next(err);
+    });
 });
 
 //Update note that matches id parameter
 router.put('/:id', (req, res, next) => {
+
   const id = req.params.id;
+
+  console.log(`updating ${id} note`);
 
   /***** Never trust users - validate input *****/
   const updateObj = {};
@@ -50,18 +61,63 @@ router.put('/:id', (req, res, next) => {
     }
   });
 
-  notes.update(id, updateObj, (err, item) => {
-    if (err) {
-      return next(err);
-    }
-    if (item) {
-      res.json(item);
-    } else {
-      next();
-    }
-  });
+  /***** Never trust users - validate input *****/
+  if (!updateObj.title) {
+    const err = new Error('Missing `title` in request body');
+    err.status = 400;
+    return next(err);
+  }
+
+  notes.update(id, updateObj)
+    .then(item => {
+      if (item) {
+        res.json(item);
+      } else {
+        next();
+      }
+    })
+    .catch(err => {
+      next(err);
+    });
 });
 
+//Create (insert) new item
+router.post('/', (req, res, next) => {
+  console.log('creating new item');
+  console.log(req.body);
 
+  const {title, content} = req.body;
+
+  const newItem = { title, content };
+
+  /***** Never trust users - validate input *****/
+  if (!newItem.title) {
+    const err = new Error('Missing `title` in request body');
+    err.status = 400;
+    return next(err);
+  }
+
+  notes.update(newItem)
+    .then(item => {
+      res.location(`http://${req.headers.host}/notes/${item.id}`).status(201).json(item);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
+router.delete('/:id', (req, res, next) => {
+  const id = req.params.id;
+
+  console.log(`Deleting ${id} note`);
+
+  notes.delete(id)
+    .then(() => {
+      res.status(204).send('No Content').end();
+    })
+    .catch(err => {
+      next(err);
+    });
+});
 
 module.exports = router;

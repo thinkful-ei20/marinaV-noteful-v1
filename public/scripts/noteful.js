@@ -86,7 +86,6 @@ const noteful = (function () {
             store.notes = searchResponse;
             render();
           });
-
         });
 
       } else {

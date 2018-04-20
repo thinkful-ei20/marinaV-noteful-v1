@@ -29,7 +29,7 @@ router.get('/', (req, res, next) => {
 
 //Get note that matches id parameter
 router.get('/:id', (req, res) => {
-  const id = req.params.id;
+  const id = +req.params.id;
 
   notes.find(id)
     .then(item => {
@@ -47,7 +47,7 @@ router.get('/:id', (req, res) => {
 //Update note that matches id parameter
 router.put('/:id', (req, res, next) => {
 
-  const id = req.params.id;
+  const id = +req.params.id;
 
   console.log(`updating ${id} note`);
 
@@ -97,7 +97,7 @@ router.post('/', (req, res, next) => {
     return next(err);
   }
 
-  notes.update(newItem)
+  notes.create(newItem)
     .then(item => {
       res.location(`http://${req.headers.host}/notes/${item.id}`).status(201).json(item);
     })
@@ -107,13 +107,14 @@ router.post('/', (req, res, next) => {
 });
 
 router.delete('/:id', (req, res, next) => {
-  const id = req.params.id;
+  const id = +req.params.id;
 
   console.log(`Deleting ${id} note`);
 
   notes.delete(id)
     .then(() => {
-      res.status(204).send('No Content').end();
+      res.sendStatus(204);
+      // res.status(204).send('No Content').end();
     })
     .catch(err => {
       next(err);
